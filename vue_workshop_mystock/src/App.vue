@@ -16,6 +16,7 @@
 </template>
 
 <script>
+// @ || "../src"
 import Header from "@/components/core/Header.vue"
 import Menu from "@/components/core/Menu.vue"
 import Content from "@/components/core/Content.vue"
