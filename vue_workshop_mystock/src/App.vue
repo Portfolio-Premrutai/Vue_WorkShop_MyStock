@@ -1,20 +1,31 @@
 <template>
 <v-app>
-  <div>
+  <Header/>
+  <Menu />
+  <Content />
+  <!-- <div>
    <h1>Hi</h1>
    <v-btn  color="info" class="black--text">text</v-btn>
    <v-icon large>email</v-icon>
    <hr>
    <router-view></router-view>
-</div>
+</div> -->
 </v-app>
 
  
 </template>
 
 <script>
+import Header from "@/components/core/Header.vue"
+import Menu from "@/components/core/Menu.vue"
+import Content from "@/components/core/Content.vue"
 export default {
-
+name:"App",
+components:{
+  Header,
+  Menu,
+  Content
+}
 }
 </script>
 
