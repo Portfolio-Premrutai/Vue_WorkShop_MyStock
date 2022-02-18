@@ -1,7 +1,7 @@
 <template>
 <v-app>
-  <Header/>
-  <Menu />
+  <Header v-if="false"/>
+  <Menu v-if="false" />
   <Content />
   <!-- <div>
    <h1>Hi</h1>
