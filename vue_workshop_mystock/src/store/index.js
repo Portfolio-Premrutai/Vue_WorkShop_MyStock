@@ -1,5 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import api from "@/services/api"
+import {server} from "@/services/constants";
 
 Vue.use(Vuex);
 
@@ -29,7 +31,7 @@ export default new Vuex.Store({
   },
   actions: {
   doLogin({commit,dispatch},{username,password}){
-      let result = true //await api.login({username,password});
+   let result = api.login({username,password});
       if(result == true){
         commit("SET_LOGGED_IN");
         commit("SET_USERNAME",username);
@@ -38,10 +40,17 @@ export default new Vuex.Store({
       }
     },
     doLogout({commit}){
-      //api.logoff();
+      api.logoff();
       commit("SET_LOGGED_OUT");
       commit("SET_USERNAME","");
-    }
+    },
+    restoreLogin({commit}){
+      if(api.isLoggedIn() == true){
+        let username = localStorage.getItem(server.USERNAME);
+        commit("SET_LOGGED_IN");
+        commit("SET_USERNAME",username)
+      }
+    },
 
   },
   modules: {},

@@ -5,7 +5,7 @@
       <v-toolbar-title>Shop Workshop V {{ version }}</v-toolbar-title>
       <v-spacer></v-spacer>
       <!--  ดันของชิดขวา-->
-      <span>{{$store.getters["username"]}}</span>
+      <span>{{$store.getters["username"] | capitalize }}</span>
       <v-btn icon @click="onClickLogOff">
         <v-icon>mdi-export</v-icon>
       </v-btn>
@@ -22,8 +22,8 @@ export default {
     },
   },
   methods: {
-    onClickLogOff() {
-      this.$store.dispatch("doLogout");
+    onClickLogOff() { 
+      this.$store.dispatch('doLogout')
     },
   },
 };
