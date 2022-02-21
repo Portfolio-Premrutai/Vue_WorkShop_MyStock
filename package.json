@@ -1,0 +1,20 @@
+{
+  "name": "vue_workshop_mystock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Portfolio-Premrutai/Vue_WorkShop_MyStock.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Portfolio-Premrutai/Vue_WorkShop_MyStock/issues"
+  },
+  "homepage": "https://github.com/Portfolio-Premrutai/Vue_WorkShop_MyStock#readme"
+}
