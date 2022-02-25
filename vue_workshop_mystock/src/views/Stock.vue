@@ -137,6 +137,14 @@ export default {
       this.mDataArray = result.data;
     });
   },
+  methods: {
+    editItem(item){
+      this.$router.push(`/stock-edit/${item.id}`)
+    },
+    deleteItem(item){
+      
+    },
+  },
 };
 </script>
 
