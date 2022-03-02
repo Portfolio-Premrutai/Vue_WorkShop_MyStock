@@ -2,11 +2,13 @@
 const express = require("express");
 const app = express();
 const cors = require("cors"); //pass call all require
+const bodyParser  = require("body-parser")
 
 
 app.use(cors())
 app.use(express.static(__dirname + "/uploaded"))
-
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json())
 
 app.use("/api/v2",require("./api"))
 

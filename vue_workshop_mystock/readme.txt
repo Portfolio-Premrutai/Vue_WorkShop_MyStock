@@ -173,6 +173,7 @@ nodemon server.js
 yarn add axios
 
 
-
-
+bodyParser JSON /url แปล ล่าม
+yarn add sequelize sqlite3
+yarn add bcryptjs
 
