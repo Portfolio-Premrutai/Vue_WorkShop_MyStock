@@ -177,3 +177,5 @@ bodyParser JSON /url แปล ล่าม
 yarn add sequelize sqlite3
 yarn add bcryptjs
 
+cd backend yarn add formidable fs-extra
+

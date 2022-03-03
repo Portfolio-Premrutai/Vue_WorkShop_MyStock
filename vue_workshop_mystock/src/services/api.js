@@ -14,24 +14,24 @@ const logoff = () =>{
 
 const login = async (values) => {
 
-let result = await httpClient.post(server.LOGIN_URL,values)
-alert(JSON.stringify(result))
+// let result = await httpClient.post(server.LOGIN_URL,values)
+// alert(JSON.stringify(result))
 
-// let result = await httpClient.post(server.LOGIN_URL,values);
-// if(result.data.result == "ok"){
-//     localStorage.setItem(server.USERNAME,values.username);
-//     localStorage.setItem(server.TOKEN_KEY,result.data.token);
-//     router.push("/stock");
-//     return true;
-// }else{
-//     return false;
-// }
-
-
-
+let result = await httpClient.post(server.LOGIN_URL,values);
+if(result.data.result == "ok"){
     localStorage.setItem(server.USERNAME,values.username);
-    localStorage.setItem(server.TOKEN_KEY,"1234")
+    localStorage.setItem(server.TOKEN_KEY,result.data.token);
+    router.push("/stock");
     return true;
+}else{
+    return false;
+}
+
+
+
+    // localStorage.setItem(server.USERNAME,values.username);
+    // localStorage.setItem(server.TOKEN_KEY,"1234")
+    // return true;
 };
 
 const register = async (values) =>{
