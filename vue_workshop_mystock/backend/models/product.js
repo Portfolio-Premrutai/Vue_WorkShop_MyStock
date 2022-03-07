@@ -1,28 +1,36 @@
-const Sequelize = require("sequelize")
-const sequelize = require("./../db_instance")
+const Sequelize = require("sequelize");
+const sequelize = require("./../db_instance");
 
-const product  = sequelize.define(
-    'product',{
-        name:{
-            type:Sequelize.STRING,
-            allowNull:false,
-        },
-        image:{ 
-            type:Sequelize.STRING,
-            allowNull:false,
-            defaultValue:"-"
-        },
-        price:{
-            type:Sequelize.NUMBER,
+const product = sequelize.define(
+    "product",
+    {      
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      image: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "-"
+      },
+      price: {
+        type: Sequelize.NUMBER
+        // allowNull defaults to true
+      },
+      stock: {
+        type: Sequelize.NUMBER
+        // allowNull defaults to true
+      }
+    },
+    {
+      // options
+    }
+  );
 
-        },
-        stock:{
-            type:Sequelize.NUMBER,
-        }
-    },{}
-);
-(async ()=>{
-    await product.sync({force:false});
+
+(async () => {
+  await product.sync({ force: false });    
 })();
 
-module.exports = product
+  
+module.exports = product;

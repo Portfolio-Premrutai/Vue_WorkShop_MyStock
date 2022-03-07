@@ -1,4 +1,5 @@
-module.exports ={
+module.exports = 
+{
     kResultOk: 'ok',
-    kResultNoK: 'nok',
+    kResultNok: 'nok'
 }
