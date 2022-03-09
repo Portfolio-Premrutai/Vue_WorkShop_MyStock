@@ -12,24 +12,37 @@ router.get("/product", async (req, res) => {
   res.json(result);
 });
 
+// Upload Image vertest
+// uploadImage = async (files, doc) => {
+//   if (files.image != null) {
+//     var fileExtention = files.image.originalFilename.split(".")[1];
+//     doc.image = `${doc.id}.${fileExtention}`;
+//     var newpath = `${__dirname}/uploaded/images/${doc.image}` 
+//     if (fs.exists(newpath)) {
+//       await fs.remove(newpath);
+//     }
+//     await fs.moveSync(files.image.filepath, newpath);
+
+//     // Update database
+//     let result = product.update(
+//       { image: doc.image },
+//       { where: { id: doc.id } }
+//     );
+//     return result;
+//   }
+// };
+
 // Upload Image
 uploadImage = async (files, doc) => {
-  console.log("-----files---- "+JSON.stringify(files))
   if (files.image != null) {
-    // var te = "13.jpg"
-    // console.log("++++ "+te.split(".")[1]) // typefile
-    console.log("****** "+ files.image.originalFilename)
-    console.log("+++++++ "+files.image.originalFilename.split(".")[1])
     var fileExtention = files.image.originalFilename.split(".")[1];
     doc.image = `${doc.id}.${fileExtention}`;
-    console.log("****** "+ doc.image)
-    var ba
-    console.log("****** "+ path.resolve(__dirname + "/uploaded/images/") + "/" + doc.image)
-    var newpath = path.resolve(__dirname + "/uploaded/images/") + "/" + doc.image; 
+    var newpath = path.resolve(__dirname + "/uploaded/images/") + "/" + doc.image;    
+
     if (fs.exists(newpath)) {
       await fs.remove(newpath);
     }
-    await fs.moveSync(files.image.path, newpath);
+    await fs.moveSync(files.image.filepath, newpath);
 
     // Update database
     let result = product.update(
@@ -45,7 +58,6 @@ router.post("/product", (req, res) => {
     const form = new formidable.IncomingForm();
     form.parse(req, async (error, fields, files) => {
       let result = await product.create(fields);
-      console.log("-----"+JSON.stringify(result))
       result = await uploadImage(files, result);
       res.json({
         result: constants.kResultOk,
