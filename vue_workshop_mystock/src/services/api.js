@@ -1,8 +1,9 @@
 import httpClient from "@/services/httpClient"
 import {server} from "@/services/constants";
 import router from "@/router";
+import * as productApis from "@/services/api_product";
 
-// import * as productApis from "@/services/api_product";
+
 const isLoggedIn = () =>{
     let token = localStorage.getItem(server.TOKEN_KEY);
     return token !=null;
@@ -26,9 +27,6 @@ if(result.data.result == "ok"){
 }else{
     return false;
 }
-
-
-
     // localStorage.setItem(server.USERNAME,values.username);
     // localStorage.setItem(server.TOKEN_KEY,"1234")
     // return true;
@@ -43,9 +41,11 @@ const register = async (values) =>{
     }
 }
 
+
 export default {
     isLoggedIn,
     login,
     logoff,
-    register
+    register,
+    ...productApis
 }

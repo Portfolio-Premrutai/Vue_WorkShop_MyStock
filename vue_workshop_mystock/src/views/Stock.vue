@@ -105,7 +105,7 @@
 
 <script>
 import StockCard from "@/components/cards/StockCard";
-import Axios from "axios";
+import api from "@/services/api";
 export default {
   name: "Stock",
   data() {
@@ -130,12 +130,10 @@ export default {
   components: {
     StockCard,
   },
-  mounted() {
+  async mounted() {
     console.log("Stock component is run");
-    Axios.get("http://localhost:8081/api/v2/product").then((result) => {
-      console.log(JSON.stringify(result.data));
-      this.mDataArray = result.data;
-    });
+    let result = await api.getProducts()
+    this.mDataArray = result.data
   },
   methods: {
     editItem(item){
